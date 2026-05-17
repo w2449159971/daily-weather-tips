@@ -1,0 +1,25 @@
+出门小提示 — 长期安装指南（iPhone 16 Pro）
+========================================
+
+方案 A【推荐·真 App】安装到主屏幕（不依赖 Mac 开机）
+------------------------------------------------
+1. 在 GitHub 新建仓库，把本文件夹 push 上去
+2. 仓库 Settings → Pages → Source 选 GitHub Actions
+3. 等 Actions 跑绿，得到网址，例如：
+   https://w2449159971.github.io/daily-weather-tips/
+4. iPhone Safari 打开该网址 → 分享 → 添加到主屏幕
+5. 以后像 App 一样点开，数据在手机里，HTTPS 可自动定位
+
+方案 B【真·原生 App】Xcode 安装（图标在桌面，体验最接近 App）
+------------------------------------------------
+1. Mac 终端执行：
+   cd ~/Desktop/daily-weather-tips
+   ./setup-ios.sh
+2. Xcode 打开后，连接 iPhone，选你的手机，配置 Signing（Apple ID）
+3. 点运行 ▶ 安装到手机
+4. 免费 Apple ID：约 7 天需连 Mac 再装一次
+5. 永久使用 + App Store：需付费开发者账号（约 ¥688/年）
+
+方案 C【上架 App Store】
+------------------------------------------------
+需 Apple Developer 账号，在 Xcode 里 Archive → Upload to App Store。

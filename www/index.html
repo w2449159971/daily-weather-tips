@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#1a5f4a" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="出门提示" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="description" content="每日天气、穿衣与出门必带提醒" />
+  <title>出门小提示</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div>
+        <p class="header-kicker">今日出门</p>
+        <h1 class="header-title" id="todayLabel">—</h1>
+      </div>
+      <button type="button" class="icon-btn" id="btnLocate" title="刷新定位与天气" aria-label="刷新天气">↻</button>
+    </header>
+
+    <main class="main">
+      <section class="card weather-card" id="weatherSection">
+        <div class="weather-hero">
+          <div class="weather-temp" id="displayTemp">--°</div>
+          <div class="weather-meta">
+            <p class="weather-desc" id="displayDesc">正在获取天气…</p>
+            <p class="weather-place" id="displayPlace">—</p>
+          </div>
+        </div>
+        <div class="chip-row" id="weatherChips"></div>
+        <div class="actions-row">
+          <button type="button" class="btn primary" id="btnSaveWeather">记录今日天气</button>
+          <button type="button" class="btn ghost" id="btnManualWeather">手动录入</button>
+        </div>
+      </section>
+
+      <section class="card" id="tipsSection" hidden>
+        <h2 class="section-title">穿衣与装备</h2>
+        <ul class="tip-list" id="tipList"></ul>
+      </section>
+
+      <section class="card">
+        <div class="section-head">
+          <h2 class="section-title">今日必带</h2>
+          <button type="button" class="text-btn" id="btnResetChecks">重置勾选</button>
+        </div>
+        <ul class="checklist" id="checklist"></ul>
+        <form class="add-form" id="addItemForm">
+          <input type="text" id="newItemInput" placeholder="添加物品，如工卡" maxlength="24" autocomplete="off" />
+          <button type="submit" class="btn primary compact">添加</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <div class="section-head">
+          <h2 class="section-title">天气记录</h2>
+          <span class="badge" id="historyCount">0 天</span>
+        </div>
+        <ul class="history-list" id="historyList"></ul>
+        <p class="empty-hint" id="historyEmpty">还没有记录，点「记录今日天气」保存。</p>
+      </section>
+    </main>
+
+    <nav class="tabbar" aria-label="主导航">
+      <button type="button" class="tab active" data-tab="home">今日</button>
+      <button type="button" class="tab" data-tab="history">记录</button>
+    </nav>
+  </div>
+
+  <dialog class="modal" id="manualDialog">
+    <form method="dialog" class="modal-body" id="manualForm">
+      <h3>手动录入天气</h3>
+      <label>体感描述
+        <select name="condition" required>
+          <option value="sunny">晴</option>
+          <option value="cloudy">多云</option>
+          <option value="overcast">阴</option>
+          <option value="rain">雨</option>
+          <option value="snow">雪</option>
+          <option value="fog">雾</option>
+        </select>
+      </label>
+      <label>气温 (°C)
+        <input type="number" name="temp" min="-30" max="45" step="1" required />
+      </label>
+      <label>降水概率 (%)
+        <input type="range" name="rainChance" min="0" max="100" value="0" />
+        <output id="rainChanceOut">0</output>
+      </label>
+      <label>紫外线 (0–11)
+        <input type="range" name="uv" min="0" max="11" step="1" value="3" />
+        <output id="uvOut">3</output>
+      </label>
+      <label>风力
+        <select name="wind">
+          <option value="calm">微风</option>
+          <option value="breeze">有风</option>
+          <option value="strong">大风</option>
+        </select>
+      </label>
+      <menu class="modal-actions">
+        <button type="button" class="btn ghost" id="manualCancel">取消</button>
+        <button type="submit" class="btn primary">应用</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>

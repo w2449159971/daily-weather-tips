@@ -1,0 +1,22 @@
+{
+  "name": "daily-weather-tips",
+  "version": "1.0.0",
+  "description": "每日天气、穿衣与出门必带提醒",
+  "private": true,
+  "scripts": {
+    "cap:sync": "npx cap sync ios",
+    "cap:ios": "npx cap open ios",
+    "ios:prepare": "npx cap sync ios && npx cap open ios"
+  },
+  "capacitor": {
+    "platforms": [
+      "ios"
+    ]
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^7.2.0",
+    "@capacitor/core": "^7.2.0",
+    "@capacitor/ios": "^7.2.0",
+    "@capacitor/geolocation": "^7.1.2"
+  }
+}

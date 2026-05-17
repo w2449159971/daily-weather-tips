@@ -1,0 +1,16 @@
+{
+  "appId": "com.dailyweathertips.app",
+  "appName": "出门小提示",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "ios": {
+    "contentInset": "automatic"
+  },
+  "plugins": {
+    "Geolocation": {
+      "locationWhenInUseDescription": "用于获取您所在位置的天气，并生成穿衣与装备建议。"
+    }
+  }
+}
