@@ -3,8 +3,14 @@
 
 方案 A【推荐·真 App】安装到主屏幕（不依赖 Mac 开机）
 ------------------------------------------------
-1. 在 GitHub 新建仓库，把本文件夹 push 上去
-2. 仓库 Settings → Pages → Source 选 GitHub Actions
+1. 打开 https://github.com/new 新建仓库
+   名称填：daily-weather-tips（与本地文件夹一致）
+   不要勾选 “Add a README”
+2. Mac 终端执行（已在本机 commit 好，只需 push）：
+   cd ~/Desktop/daily-weather-tips
+   git remote add origin https://github.com/w2449159971/daily-weather-tips.git
+   git push -u origin main
+3. 仓库 Settings → Pages → Build and deployment → Source 选 GitHub Actions
 3. 等 Actions 跑绿，得到网址，例如：
    https://w2449159971.github.io/daily-weather-tips/
 4. iPhone Safari 打开该网址 → 分享 → 添加到主屏幕
